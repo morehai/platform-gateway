@@ -1,9 +1,9 @@
 #common configuration shared between all applications
 configserver:
-    name: Docker JHipster Registry
-    status: Connected to the JHipster Registry running in Docker
+    name: Docker Gateway Registry
+    status: Connected to the Gateway Registry running in Docker
 
-jhipster:
+gateway:
     security:
         authentication:
             jwt:

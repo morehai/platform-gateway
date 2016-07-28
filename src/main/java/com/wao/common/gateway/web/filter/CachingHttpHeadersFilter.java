@@ -11,7 +11,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
-import com.wao.common.gateway.config.JHipsterProperties;
+import com.wao.common.gateway.config.GatewayProperties;
 
 /**
  * This filter is used in production, to put HTTP cache headers with a long (1
@@ -24,15 +24,15 @@ public class CachingHttpHeadersFilter implements Filter {
 
 	private long CACHE_TIME_TO_LIVE = TimeUnit.DAYS.toMillis(1461L);
 
-	private JHipsterProperties jHipsterProperties;
+	private GatewayProperties gatewayProperties;
 
-	public CachingHttpHeadersFilter(JHipsterProperties jHipsterProperties) {
-		this.jHipsterProperties = jHipsterProperties;
+	public CachingHttpHeadersFilter(GatewayProperties gatewayProperties) {
+		this.gatewayProperties = gatewayProperties;
 	}
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		CACHE_TIME_TO_LIVE = TimeUnit.DAYS.toMillis(jHipsterProperties.getHttp().getCache().getTimeToLiveInDays());
+		CACHE_TIME_TO_LIVE = TimeUnit.DAYS.toMillis(gatewayProperties.getHttp().getCache().getTimeToLiveInDays());
 	}
 
 	@Override

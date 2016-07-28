@@ -13,7 +13,7 @@ import org.springframework.http.HttpStatus;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import com.wao.common.gateway.config.JHipsterProperties;
+import com.wao.common.gateway.config.GatewayProperties;
 
 /**
  * Zuul filter for restricting access to backend micro-services endpoints.
@@ -26,7 +26,7 @@ public class AccessControlFilter extends ZuulFilter {
 	private RouteLocator routeLocator;
 
 	@Inject
-	private JHipsterProperties jHipsterProperties;
+	private GatewayProperties gatewayProperties;
 
 	@Override
 	public String filterType() {
@@ -62,7 +62,7 @@ public class AccessControlFilter extends ZuulFilter {
 	}
 
 	private boolean isAuthorizedRequest(String serviceUrl, String serviceName, String requestUri) {
-		Map<String, List<String>> authorizedMicroservicesEndpoints = jHipsterProperties.getGateway()
+		Map<String, List<String>> authorizedMicroservicesEndpoints = gatewayProperties.getGateway()
 				.getAuthorizedMicroservicesEndpoints();
 
 		// If the authorized endpoints list was left empty for this route, all

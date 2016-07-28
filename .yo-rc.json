@@ -1,6 +1,5 @@
 {
-  "generator-jhipster": {
-    "jhipsterVersion": "3.3.0",
+  "generator-gateway": {
     "baseName": "gateway",
     "packageName": "com.wao.common.gateway",
     "packageFolder": "com/wao/common/gateway",

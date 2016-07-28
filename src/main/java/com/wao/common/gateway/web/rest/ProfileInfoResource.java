@@ -10,7 +10,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wao.common.gateway.config.JHipsterProperties;
+import com.wao.common.gateway.config.GatewayProperties;
 
 @RestController
 @RequestMapping("/api")
@@ -20,7 +20,7 @@ public class ProfileInfoResource {
 	Environment env;
 
 	@Inject
-	private JHipsterProperties jHipsterProperties;
+	private GatewayProperties gatewayProperties;
 
 	@RequestMapping("/profile-info")
 	public ProfileInfoResponse getActiveProfiles() {
@@ -29,7 +29,7 @@ public class ProfileInfoResource {
 
 	private String getRibbonEnv() {
 		String[] activeProfiles = env.getActiveProfiles();
-		String[] displayOnActiveProfiles = jHipsterProperties.getRibbon().getDisplayOnActiveProfiles();
+		String[] displayOnActiveProfiles = gatewayProperties.getRibbon().getDisplayOnActiveProfiles();
 
 		if (displayOnActiveProfiles == null) {
 			return null;

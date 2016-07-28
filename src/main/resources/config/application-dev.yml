@@ -71,10 +71,10 @@ server:
     port: 8080
 
 # ===================================================================
-# JHipster specific properties
+# Gateway specific properties
 # ===================================================================
 
-jhipster:
+gateway:
     gateway:
         rate-limiting: # Read the documentation in the GatewayConfiguration class before enabling.
             enabled: false
@@ -86,7 +86,7 @@ jhipster:
                 secret: my-secret-token-to-change-in-production
                 # Token is valid 24 hours
                 tokenValidityInSeconds: 86400
-    mail: # specific JHipster mail property, for standard properties see MailProperties
+    mail: # specific Gateway mail property, for standard properties see MailProperties
         from: gateway@localhost
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true

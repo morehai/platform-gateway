@@ -70,10 +70,10 @@ server:
         min-response-size: 1024
 
 # ===================================================================
-# JHipster specific properties
+# Gateway specific properties
 # ===================================================================
 
-jhipster:
+gateway:
     gateway:
         rate-limiting: # Warning! Read the documentation in the GatewayConfiguration class.
             enabled: false
@@ -88,7 +88,7 @@ jhipster:
                 secret: d56e91db6f678d711da8a70bc60bba26ca77e5eb
                 # Token is valid 24 hours
                 tokenValidityInSeconds: 86400
-    mail: # specific JHipster mail property, for standard properties see MailProperties
+    mail: # specific Gateway mail property, for standard properties see MailProperties
         from: gateway@localhost
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true

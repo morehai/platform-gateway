@@ -24,7 +24,7 @@ import com.datastax.driver.core.policies.RetryPolicy;
 import com.datastax.driver.extras.codecs.jdk8.LocalDateCodec;
 
 @Configuration
-@ConditionalOnProperty("jhipster.gateway.rate-limiting.enabled")
+@ConditionalOnProperty("gateway.gateway.rate-limiting.enabled")
 @EnableConfigurationProperties(CassandraProperties.class)
 public class CassandraConfiguration {
 

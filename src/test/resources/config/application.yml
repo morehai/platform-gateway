@@ -69,10 +69,10 @@ server:
     address: localhost
 
 # ===================================================================
-# JHipster specific properties
+# Gateway specific properties
 # ===================================================================
 
-jhipster:
+gateway:
     async:
         corePoolSize: 2
         maxPoolSize: 50

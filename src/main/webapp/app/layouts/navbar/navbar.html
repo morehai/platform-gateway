@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand logo" href="#/" ng-click="vm.collapseNavbar()">
-                <img class="logo-img" src="content/images/logo-jhipster.png"/>
+                <img class="logo-img" src="content/images/logo-gateway.png"/>
                 <span translate="global.title">Gateway</span> <span class="navbar-version">v{{VERSION}}</span>
             </a>
         </div>
@@ -20,7 +20,7 @@
                         <span class="hidden-sm" translate="global.menu.home">Home</span>
                     </a>
                 </li>
-                <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+                <!-- gateway-needle-add-element-to-menu - Gateway will add new menu items here -->
                 <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
                         <span>
@@ -44,7 +44,7 @@
                                 <span translate="global.menu.entities.bar">Bar</span>
                             </a>
                         </li>
-                        <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                        <!-- gateway-needle-add-entity-to-menu - Gateway will add entities to the menu here -->
                     </ul>
                 </li>
                 <li ng-class="{active: vm.$state.includes('account')}" uib-dropdown class="dropdown pointer">
@@ -147,7 +147,7 @@
                                 <span translate="global.menu.admin.apidocs">API</span>
                             </a>
                         </li>
-                        <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
+                        <!-- gateway-needle-add-element-to-admin-menu - Gateway will add entities to the admin menu here -->
                         <li ng-hide="vm.inProduction">
                             <a href='/h2-console' target="_tab" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-hdd"></span>&nbsp;

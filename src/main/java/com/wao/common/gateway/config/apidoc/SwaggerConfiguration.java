@@ -15,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.StopWatch;
 
 import com.wao.common.gateway.config.Constants;
-import com.wao.common.gateway.config.JHipsterProperties;
+import com.wao.common.gateway.config.GatewayProperties;
 
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -33,7 +33,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 @Profile("!" + Constants.SPRING_PROFILE_NO_SWAGGER)
-@ConditionalOnProperty(prefix="jhipster.swagger", name="enabled")
+@ConditionalOnProperty(prefix="gateway.swagger", name="enabled")
 public class SwaggerConfiguration {
 
     private final Logger log = LoggerFactory.getLogger(SwaggerConfiguration.class);
@@ -43,27 +43,27 @@ public class SwaggerConfiguration {
     /**
      * Swagger Springfox configuration.
      *
-     * @param jHipsterProperties the properties of the application
+     * @param gatewayProperties the properties of the application
      * @return the Swagger Springfox configuration
      */
     @Bean
-    public Docket swaggerSpringfoxDocket(JHipsterProperties jHipsterProperties) {
+    public Docket swaggerSpringfoxDocket(GatewayProperties gatewayProperties) {
         log.debug("Starting Swagger");
         StopWatch watch = new StopWatch();
         watch.start();
         Contact contact = new Contact(
-            jHipsterProperties.getSwagger().getContactName(),
-            jHipsterProperties.getSwagger().getContactUrl(),
-            jHipsterProperties.getSwagger().getContactEmail());
+            gatewayProperties.getSwagger().getContactName(),
+            gatewayProperties.getSwagger().getContactUrl(),
+            gatewayProperties.getSwagger().getContactEmail());
 
         ApiInfo apiInfo = new ApiInfo(
-            jHipsterProperties.getSwagger().getTitle(),
-            jHipsterProperties.getSwagger().getDescription(),
-            jHipsterProperties.getSwagger().getVersion(),
-            jHipsterProperties.getSwagger().getTermsOfServiceUrl(),
+            gatewayProperties.getSwagger().getTitle(),
+            gatewayProperties.getSwagger().getDescription(),
+            gatewayProperties.getSwagger().getVersion(),
+            gatewayProperties.getSwagger().getTermsOfServiceUrl(),
             contact,
-            jHipsterProperties.getSwagger().getLicense(),
-            jHipsterProperties.getSwagger().getLicenseUrl());
+            gatewayProperties.getSwagger().getLicense(),
+            gatewayProperties.getSwagger().getLicenseUrl());
 
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
             .apiInfo(apiInfo)

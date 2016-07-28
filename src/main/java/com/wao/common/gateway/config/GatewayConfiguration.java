@@ -38,7 +38,7 @@ public class GatewayConfiguration {
 	 * For this filter to work, you need to have:
 	 * <ul>
 	 * <li>A working Cassandra cluster
-	 * <li>A schema with the JHipster rate-limiting tables configured, using the
+	 * <li>A schema with the gateway rate-limiting tables configured, using the
 	 * "create_keyspace.cql" and "create_tables.cql" scripts from the
 	 * "src/main/resources/config/cql" directory
 	 * <li>Your cluster configured in your application-*.yml files, using the
@@ -46,11 +46,11 @@ public class GatewayConfiguration {
 	 * </ul>
 	 */
 	@Configuration
-	@ConditionalOnProperty("jhipster.gateway.rate-limiting.enabled")
+	@ConditionalOnProperty("gateway.gateway.rate-limiting.enabled")
 	public static class RateLimitingConfiguration {
 
 		@Inject
-		private JHipsterProperties jHipsterProperties;
+		private GatewayProperties gatewayProperties;
 
 		@Bean
 		public RateLimitingRepository rateLimitingRepository() {
@@ -59,7 +59,7 @@ public class GatewayConfiguration {
 
 		@Bean
 		public RateLimitingFilter rateLimitingFilter() {
-			return new RateLimitingFilter(rateLimitingRepository(), jHipsterProperties);
+			return new RateLimitingFilter(rateLimitingRepository(), gatewayProperties);
 		}
 	}
 }

@@ -21,7 +21,7 @@ import com.wao.common.gateway.security.AuthoritiesConstants;
 public class MicroserviceSecurityConfiguration extends ResourceServerConfigurerAdapter {
 
 	@Inject
-	JHipsterProperties jHipsterProperties;
+	GatewayProperties gatewayProperties;
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
@@ -40,7 +40,7 @@ public class MicroserviceSecurityConfiguration extends ResourceServerConfigurerA
 	@Bean
 	public JwtAccessTokenConverter jwtAccessTokenConverter() {
 		JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-		converter.setSigningKey(jHipsterProperties.getSecurity().getAuthentication().getJwt().getSecret());
+		converter.setSigningKey(gatewayProperties.getSecurity().getAuthentication().getJwt().getSecret());
 
 		return converter;
 	}

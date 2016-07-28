@@ -24,12 +24,12 @@ import org.springframework.core.env.Environment;
 
 import com.wao.common.gateway.config.Constants;
 import com.wao.common.gateway.config.DefaultProfileUtil;
-import com.wao.common.gateway.config.JHipsterProperties;
+import com.wao.common.gateway.config.GatewayProperties;
 
 @ComponentScan
 @EnableAutoConfiguration(exclude = { MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class,
 		MetricsDropwizardAutoConfiguration.class })
-@EnableConfigurationProperties({ JHipsterProperties.class, LiquibaseProperties.class })
+@EnableConfigurationProperties({ GatewayProperties.class, LiquibaseProperties.class })
 @EnableEurekaClient
 @EnableZuulProxy
 public class GatewayApp {
@@ -45,9 +45,6 @@ public class GatewayApp {
 	 * Spring profiles can be configured with a program arguments
 	 * --spring.profiles.active=your-active-profile
 	 * <p>
-	 * You can find more information on how profiles work with JHipster on
-	 * <a href=
-	 * "http://jhipster.github.io/profiles/">http://jhipster.github.io/profiles/</a>.
 	 */
 	@PostConstruct
 	public void initApplication() {

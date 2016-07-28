@@ -25,16 +25,16 @@ public class AsyncConfiguration implements AsyncConfigurer {
     private final Logger log = LoggerFactory.getLogger(AsyncConfiguration.class);
 
     @Inject
-    private JHipsterProperties jHipsterProperties;
+    private GatewayProperties gatewayProperties;
 
     @Override
     @Bean(name = "taskExecutor")
     public Executor getAsyncExecutor() {
         log.debug("Creating Async Task Executor");
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(jHipsterProperties.getAsync().getCorePoolSize());
-        executor.setMaxPoolSize(jHipsterProperties.getAsync().getMaxPoolSize());
-        executor.setQueueCapacity(jHipsterProperties.getAsync().getQueueCapacity());
+        executor.setCorePoolSize(gatewayProperties.getAsync().getCorePoolSize());
+        executor.setMaxPoolSize(gatewayProperties.getAsync().getMaxPoolSize());
+        executor.setQueueCapacity(gatewayProperties.getAsync().getQueueCapacity());
         executor.setThreadNamePrefix("gateway-Executor-");
         return new ExceptionHandlingAsyncTaskExecutor(executor);
     }

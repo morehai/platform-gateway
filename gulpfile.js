@@ -1,4 +1,3 @@
-// Generated on 2016-05-26 using generator-jhipster 3.3.0
 'use strict';
 
 var gulp = require('gulp'),
@@ -28,7 +27,7 @@ var handleErrors = require('./gulp/handleErrors'),
     util = require('./gulp/utils'),
     build = require('./gulp/build');
 
-var yorc = require('./.yo-rc.json')['generator-jhipster'];
+var yorc = require('./.yo-rc.json')['generator-gateway'];
 
 var config = require('./gulp/config');
 

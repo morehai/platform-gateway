@@ -12,7 +12,7 @@ import org.springframework.http.HttpStatus;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import com.wao.common.gateway.config.JHipsterProperties;
+import com.wao.common.gateway.config.GatewayProperties;
 import com.wao.common.gateway.security.SecurityUtils;
 
 /**
@@ -29,9 +29,9 @@ public class RateLimitingFilter extends ZuulFilter {
 	@Inject
 	private RateLimitingRepository rateLimitingRepository;
 
-	public RateLimitingFilter(RateLimitingRepository rateLimitingRepository, JHipsterProperties jHipsterProperties) {
+	public RateLimitingFilter(RateLimitingRepository rateLimitingRepository, GatewayProperties gatewayProperties) {
 		this.rateLimitingRepository = rateLimitingRepository;
-		this.rateLimit = jHipsterProperties.getGateway().getRateLimiting().getLimit();
+		this.rateLimit = gatewayProperties.getGateway().getRateLimiting().getLimit();
 	}
 
 	@Override
